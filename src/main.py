@@ -52,7 +52,6 @@ def run_simulation(genomes, config):
     # Simple Counter To Roughly Limit Time (Not Good Practice)
     counter = 0
 
-
     # Draw Map And All Cars That Are Alive
     screen.blit(game_map, (0, 0))
 
@@ -137,3 +136,62 @@ if __name__ == "__main__":
         pickle.dump(winner, f)
 
     print("Best genome saved as 'best_genome.pkl'")
+
+# if __name__ == "__main__":
+#     # Load Config
+#     config_path = "../config/config.txt"
+#     config = neat.config.Config(neat.DefaultGenome,
+#                                 neat.DefaultReproduction,
+#                                 neat.DefaultSpeciesSet,
+#                                 neat.DefaultStagnation,
+#                                 config_path)
+#
+#     # Create Population And Add Reporters
+#     population = neat.Population(config)
+#     population.add_reporter(neat.StdOutReporter(True))
+#     stats = neat.StatisticsReporter()
+#     population.add_reporter(stats)
+#
+#     # Run Simulation
+#     population.run(run_simulation, 10)
+#     winner = population.best_genome
+#
+#     # Save the best genome (winner) to a file
+#     with open("best_genome_map1.pkl", "wb") as f:
+#         pickle.dump(winner, f)
+#
+#     print("Best genome saved as 'best_genome.pkl'")
+
+# if __name__ == "__main__":
+#     # Load Config
+#     config_path = "../config/config.txt"
+#     config = neat.config.Config(neat.DefaultGenome,
+#                                 neat.DefaultReproduction,
+#                                 neat.DefaultSpeciesSet,
+#                                 neat.DefaultStagnation,
+#                                 config_path)
+#
+#     # Load the previously saved best genome (from first map)
+#     with open("best_genome_map1.pkl", "rb") as f:
+#         winner = pickle.load(f)
+#
+#     # Create a new population with the saved best genome
+#     population = neat.Population(config)
+#
+#     # Replace the first genome with the best genome from the previous map
+#     # population.population[0] = winner
+#
+#     # Add reporters
+#     population.add_reporter(neat.StdOutReporter(True))
+#     stats = neat.StatisticsReporter()
+#     population.add_reporter(stats)
+#
+#     # Run simulation on the new map
+#     population.run(run_simulation, 10)
+#
+#     # Save the new best genome from training on the new map
+#     winner = population.best_genome
+#     with open("best_genome_map1.pkl", "wb") as f:
+#         pickle.dump(winner, f)
+#
+#     print("Best genome saved as 'best_genome_map2.pkl'")
